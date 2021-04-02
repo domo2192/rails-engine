@@ -19,6 +19,12 @@
         "lines": [
           1,
           1,
+          null,
+          1,
+          4,
+          4,
+          4,
+          null,
           null
         ]
       },
@@ -90,7 +96,8 @@
           1,
           null,
           1,
-          2,
+          4,
+          4,
           null,
           null
         ]
@@ -100,8 +107,16 @@
           1,
           null
         ]
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1617390793
+    "timestamp": 1617403098
   }
 }
