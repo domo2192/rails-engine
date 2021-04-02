@@ -4,6 +4,6 @@ FactoryBot.define do
     quantity { 10 }
     unit_price {200}
     invoice
-    item 
+    item
   end
 end

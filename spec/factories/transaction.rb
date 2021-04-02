@@ -5,6 +5,6 @@ FactoryBot.define do
   credit_card_expiration_date { "04/23" }
    result { "success" }
 
-   invoice 
+   invoice
   end
 end
