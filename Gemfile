@@ -39,13 +39,16 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 3.0.0'
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
   gem "vcr"
   gem 'webmock'
   gem 'orderly'
-end 
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
