@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Merchants API', type: :request do
   describe 'GET /api/v1/merchants' do
     it 'returns 20 merchants at a time without query params' do
+      FactoryBot.create_list(:merchant, 20)
       get '/api/v1/merchants'
-      FactoryBot.create_list(:merchant, 40)
       expect(response).to be_successful
       merchants = JSON.parse(response.body, symbolize_names: true)
 			expect(merchants).not_to be_empty
@@ -22,17 +22,16 @@ RSpec.describe 'Merchants API', type: :request do
 	end
 
   it 'can return less than 20' do
+     create_list(:merchant, 5)
      get '/api/v1/merchants?per_page=3'
-     Merchant.destroy_all
-    FactoryBot.create_list(:merchant, 5)
+
     merchants = JSON.parse(response.body, symbolize_names: true)
     expect(merchants[:data].count).to eq(3)
   end
 
   it 'can be longer than 20' do
+    create_list(:merchant, 30)
      get '/api/v1/merchants?per_page=30'
-    Merchant.destroy_all
-    FactoryBot.create_list(:merchant, 30)
     merchants = JSON.parse(response.body, symbolize_names: true)
     expect(merchants[:data].count).to eq(30)
   end
