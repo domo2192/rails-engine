@@ -33,5 +33,14 @@ RSpec.describe 'Merchants API', type: :request do
       expect(merchant[:data][:attributes]).to have_value(merchant2.name)
       expect(merchant[:data][:attributes]).not_to have_value(merchant1.name)
     end
+
+    it "returns a object for sad path no fragment matches " do
+      Merchant.destroy_all
+      create_list(:merchant, 15, name: "Best Merchants")
+        get "/api/v1/merchants/find?name=ring"
+        expect(response).to be_successful
+        merchant = JSON.parse(response.body, symbolize_names: true)
+        expect(merchant[:data].class).to be(Hash)
+    end
   end
 end
