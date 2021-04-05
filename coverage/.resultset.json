@@ -109,12 +109,40 @@
           1,
           1,
           null,
+          null,
+          1,
+          2,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          3,
+          null,
           null
         ]
       },
       "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -162,6 +190,6 @@
         ]
       }
     },
-    "timestamp": 1617630058
+    "timestamp": 1617648826
   }
 }
