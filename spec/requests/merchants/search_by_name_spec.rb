@@ -17,11 +17,21 @@ RSpec.describe 'Merchants API', type: :request do
       Merchant.destroy_all
       merchant1 = create(:merchant, name: "better merchant")
       create_list(:merchant, 15, name: "Best Merchants")
-        get "/api/v1/merchants/find?name=mercha"
+        get "/api/v1/merchants/find?name=better"
         expect(response).to be_successful
         merchant = JSON.parse(response.body, symbolize_names: true)
         expect(merchant[:data][:attributes]).to have_value(merchant1.name)
         expect(merchant[:data][:attributes]).not_to have_value(Merchant.last.name)
+    end
+
+    it "returns first by alphabetical order" do
+      Merchant.destroy_all
+      merchant1 = create(:merchant, name: "Turing")
+      merchant2 = create(:merchant, name: "Ring World")
+      get "/api/v1/merchants/find?name=ring"
+      merchant = JSON.parse(response.body, symbolize_names: true)
+      expect(merchant[:data][:attributes]).to have_value(merchant2.name)
+      expect(merchant[:data][:attributes]).not_to have_value(merchant1.name)
     end
   end
 end
