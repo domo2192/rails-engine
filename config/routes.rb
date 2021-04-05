@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
+      namespace :merchants do
+        get '/find_all', to: 'search#find_all'
+      end
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       resources :merchants do
         get '/items', to: 'merchant_items#show'
       end

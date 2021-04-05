@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Merchants API', type: :request do
-  describe 'GET /api/v1/merchants/merchant_id' do
+  describe 'GET /api/v1/merchants' do
     it 'returns the specific merchant when given the name' do
       merchant1 = create(:merchant)
       create_list(:item, 15, merchant: merchant1)

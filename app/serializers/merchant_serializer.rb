@@ -3,6 +3,6 @@ class MerchantSerializer
   attributes :name
 
   def self.convert(payload)
-    {data: {}} 
+    {data: {}}
   end
 end
