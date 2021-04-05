@@ -11,10 +11,9 @@ RSpec.describe 'Items API', type: :request do
       put "/api/v1/items/#{item1.id}", headers: headers, params: JSON.generate(item: item_update)
       expect(response.status).to eq(200)
       updated_item = JSON.parse(response.body, symbolize_names: true)
-      expect(updated_item[:data][:id]).to eq(item1.id)
+      expect(updated_item[:data][:id].to_i).to eq(item1.id)
       expect(updated_item[:data][:attributes][:name]).not_to eq(item1.name)
-      
-      require "pry"; binding.pry
+
       end
     end
   end
