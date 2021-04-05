@@ -11,4 +11,10 @@ class ApplicationRecord < ActiveRecord::Base
   def self.find_record(id)
     find(id)
   end
+
+  def self.find_by_fragment(params)
+    params.downcase
+    search_key = "%#{params}%"
+    self.where("name ilike ?", "%#{search_key}%")
+  end
 end
