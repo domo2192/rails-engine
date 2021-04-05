@@ -7,7 +7,7 @@ RSpec.describe 'items search API', type: :request do
       create_list(:item, 15, merchant: merchant1, unit_price: 35.0)
       create_list(:item, 15, merchant: merchant1, unit_price: 90.0)
       create_list(:item, 15, merchant: merchant1)
-      get "/api/v1/merchants/find_all?max_price=50"
+      get "/api/v1/items/find_all?max_price=50"
       expect(response).to be_successful
       items = JSON.parse(response.body, symbolize_names: true)
       expect(items[:data].size).to eq(30)
@@ -24,7 +24,7 @@ RSpec.describe 'items search API', type: :request do
       create_list(:item, 15, merchant: merchant1, unit_price: 35.0)
       create_list(:item, 15, merchant: merchant1, unit_price: 90.0)
       create_list(:item, 15, merchant: merchant1)
-      get "/api/v1/merchants/find_all?min_price=50"
+      get "/api/v1/items/find_all?min_price=50"
       expect(response).to be_successful
       items = JSON.parse(response.body, symbolize_names: true)
       expect(items[:data].size).to eq(15)
@@ -43,7 +43,7 @@ RSpec.describe 'items search API', type: :request do
       create_list(:item, 15, merchant: merchant1, unit_price: 70.0)
       create_list(:item, 15, merchant: merchant1, unit_price: 25.0)
       create_list(:item, 15, merchant: merchant1)
-      get "/api/v1/merchants/find_all?max_price=50&min_price=20"
+      get "/api/v1/items/find_all?max_price=50&min_price=20"
       expect(response).to be_successful
       items = JSON.parse(response.body, symbolize_names: true)
       expect(items[:data].size).to eq(30)

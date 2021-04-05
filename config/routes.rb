@@ -7,9 +7,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
   namespace :api do
     namespace :v1 do
-      namespace :merchants do
+      namespace :items do
         get '/find_all', to: 'search#find_all'
       end
     end
