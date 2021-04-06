@@ -7,12 +7,13 @@ class Merchant < ApplicationRecord
   has_many :transactions, through: :invoices
   has_many :customers, through: :invoices
 
+
   def self.find_top_merchants(quantity)
-    x = self.
+    self.
     select("merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue").
     joins(invoice_items: :transactions).
     group(:id).
-    where(transactions: {result: "success"}).
+    merge(Transaction.successful).
     order("revenue DESC").
     limit(quantity)
   end

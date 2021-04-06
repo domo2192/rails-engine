@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-    get '/most_revenue', to: 'search#most_revenue'
+  #   get '/most_revenue', to: 'search#most_revenue'
   namespace :api do
     namespace :v1 do
       namespace :merchants do
