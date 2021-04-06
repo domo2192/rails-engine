@@ -28,6 +28,14 @@ class Merchant < ApplicationRecord
     limit(quantity)
   end
 
+  def self.find_revenue(id)
+    select("merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue").
+    joins(invoice_items: :transactions).
+    group(:id).
+    merge(Transaction.successful).
+    where("merchants.id = #{id}")
+  end
+
   # def self.revenue_between(starttime, endtime)
   #   joins(invoice_items: :transactions).
   #   select("transactions.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue").
