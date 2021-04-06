@@ -17,4 +17,16 @@ class ApplicationRecord < ActiveRecord::Base
     search_key = "%#{params}%"
     self.where("name ilike ?", "%#{search_key}%")
   end
+
+  def self.find_by_max_price(price)
+    self.where('unit_price < ?', price)
+  end
+
+  def self.find_by_min_price(price)
+      self.where('unit_price > ?', price)
+  end
+
+  def self.find_by_range_price(max, min)
+    self.where(['unit_price < ? AND unit_price > ?', max, min])
+  end
 end

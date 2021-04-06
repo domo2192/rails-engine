@@ -32,10 +32,27 @@
           null,
           null,
           1,
-          1,
+          0,
+          0,
+          0,
+          null,
+          null,
           1,
           1,
           null,
+          null
+        ]
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/models/item.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -44,12 +61,17 @@
           1,
           null,
           1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
           null,
           0,
           null,
+          null,
+          null,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -71,15 +93,11 @@
           null
         ]
       },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_serializer.rb": {
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/item_serializer.rb": {
         "lines": [
           1,
           1,
           1,
-          null,
-          1,
-          1,
-          null,
           null
         ]
       },
@@ -93,21 +111,6 @@
           0,
           null,
           null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/models/item.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0
         ],
@@ -156,8 +159,12 @@
         "branches": {
         }
       },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/item_serializer.rb": {
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_serializer.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -248,8 +255,30 @@
         ],
         "branches": {
         }
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/api/v1/items/search_controller.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1617657665
+    "timestamp": 1617669481
   }
 }
