@@ -8,4 +8,5 @@ class Api::V1::Merchants::SearchController < ApplicationController
       render json: MerchantSerializer.new(merchant.first)
     end
   end
+
 end

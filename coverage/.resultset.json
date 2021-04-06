@@ -32,21 +32,13 @@
           null,
           null,
           1,
-          4,
-          4,
-          4,
-          null,
-          null,
-          1,
+          0,
+          0,
           0,
           null,
           null,
           1,
-          0,
-          null,
-          null,
           1,
-          0,
           null,
           null
         ]
@@ -69,12 +61,17 @@
           1,
           null,
           1,
-          4,
-          4,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
           1,
-          null,
-          3,
-          null,
+          1,
+          1,
           null,
           null
         ]
@@ -96,15 +93,11 @@
           null
         ]
       },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_serializer.rb": {
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/item_serializer.rb": {
         "lines": [
           1,
           1,
           1,
-          null,
-          1,
-          1,
-          null,
           null
         ]
       },
@@ -166,8 +159,12 @@
         "branches": {
         }
       },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/item_serializer.rb": {
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_serializer.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -282,6 +279,6 @@
         }
       }
     },
-    "timestamp": 1617664545
+    "timestamp": 1617669481
   }
 }
