@@ -9,4 +9,13 @@ class Api::V1::MerchantsController < ApplicationController
     merchant = Merchant.find_record(params[:id])
     render json: MerchantSerializer.new(merchant)
   end
+
+  def most_items
+    if params[:quantity]
+      merchants = Merchant.most_items_sold(params[:quantity])
+      render json: MerchantItemCountSerializer.new(merchants)
+    else
+      render json: {error: {}}, status: 400
+    end 
+  end
 end
