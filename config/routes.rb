@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
-      resources :revenue do
+      namespace :revenue do
         get '/merchants', to: 'revenue#most_revenue'
+        get '/unshipped', to: 'revenue#unshipped_revenue'
       end
     end
   end
@@ -26,12 +27,17 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
+      get 'merchants/most_items', to: 'merchants#most_items'
       resources :merchants do
         get '/items', to: 'merchant_items#show'
       end
     end
+  end
+  namespace :api do
+    namespace :v1 do
       resources :items do
         get '/merchant', to: 'items_merchant#show'
+      end
     end
   end
 end

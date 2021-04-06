@@ -7,4 +7,13 @@ class Invoice < ApplicationRecord
 
 
   enum status: ["cancelled", "in progress", "completed"]
+
+  def self.find_unshipped_revenue(quantity = 10)
+    self.joins(:invoice_items).joins(:transactions)
+    .select("invoices.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS potential_revenue").
+    group(:id).
+    where(invoices: {status: "packaged"}).
+    order("potential_revenue DESC").
+    limit(quantity)
+  end
 end

@@ -7,4 +7,5 @@ class InvoiceItem < ApplicationRecord
  validates_presence_of :unit_price, :quantity
 
  enum status: [:pending, :packaged, :shipped]
+
 end

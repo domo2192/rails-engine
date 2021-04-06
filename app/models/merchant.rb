@@ -18,4 +18,20 @@ class Merchant < ApplicationRecord
     limit(quantity)
   end
 
+  def self.most_items_sold(quantity)
+    self.
+    select("merchants.*, SUM(invoice_items.quantity) AS count").
+    joins(items: {invoice_items: :transactions}).
+    merge(Transaction.successful).
+    group(:id).
+    order("count DESC").
+    limit(quantity)
+  end
+
+  # def self.revenue_between(starttime, endtime)
+  #   joins(invoice_items: :transactions).
+  #   select("transactions.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue").
+  #   merge(Transaction.successful).
+  #   group('transactions.created_at < ? AND transactions.created_at > ?', starttime, endtime)
+  # end
 end
