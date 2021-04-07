@@ -30,4 +30,15 @@ RSpec.describe 'Items API', type: :request do
       expect(response.status).to be(404)
     end
   end
+
+  it "returns 404 for string id " do
+    create_list(:item, 15)
+    item = Item.all.first
+    get "/api/v1/items/1000"
+    expect(response).to_not be_successful
+    expect(response.status).to be(404)
+    get "/api/v1/items/45"
+    expect(response).to_not be_successful
+    expect(response.status).to be(404)
+  end
 end

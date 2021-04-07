@@ -31,17 +31,17 @@ RSpec.describe 'Items API', type: :request do
       expect(items[:data].first[:attributes].values).to eq([Item.first.name, Item.first.description, Item.first.unit_price, Item.first.merchant_id])
       expect(items[:data].last[:attributes].values).to eq([Item.all[19].name, Item.all[19].description, Item.all[19].unit_price, Item.all[19].merchant_id])
     end
-  end
 
 
-  it "returns the correct amount of data and on each page" do
-    FactoryBot.create_list(:item, 100)
-    get '/api/v1/items?per_page=50&page=2'
-    expect(response).to be_successful
-    items = JSON.parse(response.body, symbolize_names: true)
-    expect(items).not_to be_empty
-    expect(items[:data].count).to eq(50)
-    expect(items[:data].first[:attributes].values).to eq([Item.all[50].name, Item.all[50].description, Item.all[50].unit_price, Item.all[50].merchant_id])
-    expect(items[:data].last[:attributes].values).to eq([Item.all[99].name, Item.all[99].description, Item.all[99].unit_price, Item.all[99].merchant_id])
+    it "returns the correct amount of data and on each page" do
+      FactoryBot.create_list(:item, 100)
+      get '/api/v1/items?per_page=50&page=2'
+      expect(response).to be_successful
+      items = JSON.parse(response.body, symbolize_names: true)
+      expect(items).not_to be_empty
+      expect(items[:data].count).to eq(50)
+      expect(items[:data].first[:attributes].values).to eq([Item.all[50].name, Item.all[50].description, Item.all[50].unit_price, Item.all[50].merchant_id])
+      expect(items[:data].last[:attributes].values).to eq([Item.all[99].name, Item.all[99].description, Item.all[99].unit_price, Item.all[99].merchant_id])
+    end 
   end
 end

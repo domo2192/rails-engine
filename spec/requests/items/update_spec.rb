@@ -15,5 +15,20 @@ RSpec.describe 'Items API', type: :request do
       expect(updated_item[:data][:attributes][:name]).not_to eq(item1.name)
 
       end
+
+      it "updates partial data sets" do
+        create_list(:item, 15)
+        merchant = create(:merchant)
+        item1 = Item.all.first
+        item_update = ({unit_price: 45, merchant_id: merchant.id})
+        headers = {"CONTENT_TYPE" => "application/json"}
+        put "/api/v1/items/#{item1.id}", headers: headers, params: JSON.generate(item: item_update)
+        expect(response.status).to eq(200)
+        updated_item = JSON.parse(response.body, symbolize_names: true)
+        expect(updated_item[:data][:id].to_i).to eq(item1.id)
+        expect(updated_item[:data][:attributes][:unit_price]).to eq(45)
+        expect(updated_item[:data][:attributes][:name]).to eq(item1.name)
+        expect(updated_item[:data][:attributes][:description]).to eq(item1.description)
+      end
     end
   end

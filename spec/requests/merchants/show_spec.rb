@@ -12,5 +12,14 @@ RSpec.describe 'Merchants API', type: :request do
       expect(merchant[:data][:attributes]).to have_key(:name)
       expect(merchant[:data][:attributes]).to have_value(Merchant.first.name)
     end
+
+    it "returns 404 if id does not exist or is a string" do
+      merchant1 = create(:merchant)
+      create_list(:item, 15, merchant: merchant1)
+      get "/api/v1/merchants/55"
+      expect(response).not_to be_successful
+        get "/api/v1/merchants/#{0}"
+        expect(response).not_to be_successful
+    end
   end
 end

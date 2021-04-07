@@ -12,7 +12,6 @@ RSpec.describe 'Items API', type: :request do
       expect(Item.count).to eq(15)
       expect{Item.find(item1.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
-  end
 
   it 'renders error when id is not in database' do
     merchant = create(:merchant)
@@ -50,5 +49,6 @@ RSpec.describe 'Items API', type: :request do
     expect(Item.count).to eq(15)
     expect(Invoice.count).to eq(13)
     expect(InvoiceItem.count).to eq(2)
+    end
   end
 end
