@@ -23,6 +23,30 @@
           0,
           null,
           null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -34,8 +58,9 @@
           1,
           0,
           0,
-          null,
           0,
+          0,
+          null,
           null,
           null,
           1,
@@ -72,6 +97,71 @@
           1,
           1,
           1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/api/v1/items_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          4,
+          2,
+          2,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          0,
+          null,
           null
         ]
       },
@@ -86,6 +176,16 @@
           null,
           null,
           1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
           null
         ]
       },
@@ -114,43 +214,6 @@
           1,
           null,
           1,
-          null
-        ]
-      },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
           null,
           null
         ]
@@ -168,6 +231,36 @@
         }
       },
       "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_name_revenue_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_revenue_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/merchant_item_count_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/unshipped_order_serializer.rb": {
         "lines": [
           0,
           0,
@@ -201,6 +294,33 @@
         "branches": {
         }
       },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/api/v1/merchants/search_controller.rb": {
         "lines": [
           0,
@@ -214,45 +334,6 @@
           0,
           0,
           null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/controllers/api/v1/items_controller.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
           0
         ],
         "branches": {
@@ -319,12 +400,35 @@
           0,
           0,
           0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           0
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1617736803
+    "timestamp": 1617813449
   }
 }
