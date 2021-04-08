@@ -6,7 +6,7 @@ class Invoice < ApplicationRecord
   has_one :merchant, through: :item
 
 
-  enum status: ["cancelled", "in progress", "completed"]
+  enum status: ["returned", "packaged", "shipped"]
 
   def self.find_unshipped_revenue(quantity = 10)
     self.joins(:invoice_items).joins(:transactions)

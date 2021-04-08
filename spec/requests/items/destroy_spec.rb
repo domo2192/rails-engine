@@ -9,6 +9,7 @@ RSpec.describe 'Items API', type: :request do
       expect(Item.count).to eq(16)
       delete "/api/v1/items/#{item1.id}"
       expect(response).to be_successful
+      expect(response.status).to eq(200)
       expect(Item.count).to eq(15)
       expect{Item.find(item1.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end

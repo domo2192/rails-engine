@@ -32,6 +32,7 @@ RSpec.describe 'Items API', type: :request do
   end
 
     it "renders correct data when created" do
+      Item.destroy_all
       create_list(:item, 15)
       merchant = create(:merchant)
       item = ({name: "value1", description: "value2", unit_price: 100.99, merchant_id: merchant.id})
@@ -39,9 +40,9 @@ RSpec.describe 'Items API', type: :request do
       post "/api/v1/items", headers: headers, params: JSON.generate(item: item)
       expect(response).to have_http_status :created
       expect(response.status).to eq(201)
-      data = { "name": "value1","description": "value2","unit_price": 100.99, "merchant_id": 14}
+      data = { "name": "value1","description": "value2","unit_price": 100.99, "merchant_id": merchant.id}
       item = JSON.parse(response.body, symbolize_names: true)
-      expect(item).to eq(data)
+      expect(item[:data][:attributes]).to eq(data)
     end
   end
 end

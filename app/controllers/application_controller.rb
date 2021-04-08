@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_record
 
   def render_404
-    render json: exception.record.errors, status: 404
+    render json: {error: "Record Not Found"}, status: 404
   end
 
   def render_invalid_record
