@@ -27,4 +27,13 @@ class Api::V1::RevenueController < ApplicationController
       render json: MerchantRevenueSerializer.new(merchant.first)
     end
   end
+
+  def item_revenue
+    if params[:quantity].to_i > 0 || params[:quantity].nil?
+      items = Item.find_top_items(params[:quantity])
+      render json: ItemRevenueSerializer.new(items)
+    else
+      render json: {error: 'Invalid quantity'}, status: 400
+    end
+  end
 end

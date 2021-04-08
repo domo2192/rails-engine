@@ -15,4 +15,15 @@ class Item < ApplicationRecord
     InvoiceItem.where(item_id: self.id).delete_all
     Invoice.delete(x)
   end
+
+  def self.find_top_items(quantity)
+    quantity = 10 unless quantity
+      joins(:transactions).
+      merge(Transaction.successful).
+      merge(Invoice.shipped).
+      group(:id).
+      select("items.*, SUM(invoice_items.quantity * invoice_items.unit_price) as revenue").
+      order("revenue DESC").
+      limit(quantity)
+  end
 end
