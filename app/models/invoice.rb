@@ -4,9 +4,8 @@ class Invoice < ApplicationRecord
   has_many :invoice_items, dependent: :destroy
   has_many :items, through: :invoice_items
   has_one :merchant, through: :item
+  scope :shipped, -> {where(status: "shipped")}
 
-
-  enum status: ["returned", "packaged", "shipped"]
 
   def self.find_unshipped_revenue(quantity = 10)
     self.joins(:invoice_items).joins(:transactions)
@@ -16,5 +15,4 @@ class Invoice < ApplicationRecord
     order("potential_revenue DESC").
     limit(quantity)
   end
-
 end
