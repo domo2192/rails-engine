@@ -1,7 +1,7 @@
 require "faker"
 FactoryBot.define do
   factory :invoice do
-    status {"completed"}
+    status {"shipped"}
     customer
   end
 end

@@ -14,6 +14,7 @@ class Merchant < ApplicationRecord
     joins(invoice_items: :transactions).
     group(:id).
     merge(Transaction.successful).
+    merge(Invoice.shipped).
     order("revenue DESC").
     limit(quantity)
   end
@@ -23,6 +24,7 @@ class Merchant < ApplicationRecord
     select("merchants.*, SUM(invoice_items.quantity) AS count").
     joins(items: {invoice_items: :transactions}).
     merge(Transaction.successful).
+    merge(Invoice.shipped).
     group(:id).
     order("count DESC").
     limit(quantity)
@@ -33,6 +35,7 @@ class Merchant < ApplicationRecord
     joins(invoice_items: :transactions).
     group(:id).
     merge(Transaction.successful).
+    merge(Invoice.shipped).
     where("merchants.id = #{id}")
   end
 

@@ -6,4 +6,13 @@ class Item < ApplicationRecord
   has_many :invoices, through: :invoice_items
   has_many :transactions, through: :invoices
   has_many :customers, through: :invoices
+
+  def find_single_invoices
+    x = invoices.joins(:items).
+    select("invoices.*, count(items.*)").
+    group("invoices.id").
+    having("count(items.*)=1").pluck(:id)
+    InvoiceItem.where(item_id: self.id).delete_all
+    Invoice.delete(x)
+  end
 end

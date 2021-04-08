@@ -11,11 +11,11 @@ class Api::V1::MerchantsController < ApplicationController
   end
 
   def most_items
-    if params[:quantity]
+    if params[:quantity].nil? || params[:quantity].empty?
+      render json: {error: {}}, status: 400
+    else
       merchants = Merchant.most_items_sold(params[:quantity])
       render json: MerchantItemCountSerializer.new(merchants)
-    else
-      render json: {error: {}}, status: 400
-    end 
+    end
   end
 end

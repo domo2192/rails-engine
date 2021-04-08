@@ -20,7 +20,6 @@ RSpec.describe 'Items API', type: :request do
       expect(item_api[:data][:attributes]).to have_value(item[:unit_price])
       expect(item_api[:data][:attributes]).to have_value(item[:merchant_id])
     end
-  end
 
   it "renders 404 for invalid params" do
     create_list(:item, 15)
@@ -30,6 +29,20 @@ RSpec.describe 'Items API', type: :request do
     post "/api/v1/items", headers: headers, params: JSON.generate(item: item)
     expect(response).not_to have_http_status :created
     expect(response.status).to eq(404)
+  end
 
+    it "renders correct data when created" do
+      Item.destroy_all
+      create_list(:item, 15)
+      merchant = create(:merchant)
+      item = ({name: "value1", description: "value2", unit_price: 100.99, merchant_id: merchant.id})
+      headers = {"CONTENT_TYPE" => "application/json"}
+      post "/api/v1/items", headers: headers, params: JSON.generate(item: item)
+      expect(response).to have_http_status :created
+      expect(response.status).to eq(201)
+      data = { "name": "value1","description": "value2","unit_price": 100.99, "merchant_id": merchant.id}
+      item = JSON.parse(response.body, symbolize_names: true)
+      expect(item[:data][:attributes]).to eq(data)
+    end
   end
 end

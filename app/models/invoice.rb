@@ -1,12 +1,11 @@
 class Invoice < ApplicationRecord
   belongs_to :customer
   has_many :transactions
-  has_many :invoice_items
+  has_many :invoice_items, dependent: :destroy
   has_many :items, through: :invoice_items
   has_one :merchant, through: :item
+  scope :shipped, -> {where(status: "shipped")}
 
-
-  enum status: ["cancelled", "in progress", "completed"]
 
   def self.find_unshipped_revenue(quantity = 10)
     self.joins(:invoice_items).joins(:transactions)
