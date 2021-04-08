@@ -74,7 +74,7 @@
           1,
           1,
           1,
-          13,
+          14,
           null,
           null,
           1,
@@ -106,6 +106,17 @@
           null,
           3,
           3,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
           null,
           null
         ]
@@ -167,7 +178,7 @@
           1,
           1,
           null,
-          13,
+          14,
           null,
           null
         ]
@@ -200,6 +211,15 @@
           1,
           null,
           1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          1,
+          1,
+          null,
           1,
           null,
           null,
@@ -300,6 +320,14 @@
           1,
           null,
           null,
+          null
+        ]
+      },
+      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/item_revenue_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -404,6 +432,6 @@
         ]
       }
     },
-    "timestamp": 1617888118
+    "timestamp": 1617899229
   }
 }
