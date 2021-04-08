@@ -1,7 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 # Rails Engine 
 You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs. Your job is to expose the data that powers the site through an API that the front end will consume.
 
@@ -21,7 +19,7 @@ You are working for a company developing an E-Commerce Application. Your team is
 2. Install gem packages: `bundle install`
 3. Set up your local database: `rails db:{drop,create,migrate,seed}`
 4. To run the Test Suite Use: `bundle exec rspec` 
-5. Start your local server `rails s`
+5. Start your local server: `rails s`
 6. Start visiting the endpoints listed below starting with: `localhost:3000//api/v1/......
 
 ## Schema 
@@ -31,7 +29,7 @@ You are working for a company developing an E-Commerce Application. Your team is
 ### Get all resources Merchant or Items 
 `GET /api/v1/merchants` 
 
-*This endpoint allows you to retrieve all merchants from the database and has optional query params of per_page and page*
+*This endpoint allows you to retrieve all merchants from the database and has optional query params of per_page and page.*
 
 Example JSON Response for `GET /api/v1/merchants?per_page=2page=1` 
 ```{
@@ -58,7 +56,7 @@ Example JSON Response for `GET /api/v1/merchants?per_page=2page=1`
 
 `GET /api/v1/merchants/#{merchant_id}` 
 
-*This endpoint allows your to retreive a specific merchant merchant their information*
+*This endpoint allows your to retreive a specific merchant merchant their information.*
 
 Example JSON Response for `GET /api/v1/merchant/1` 
 
@@ -77,7 +75,7 @@ Example JSON Response for `GET /api/v1/merchant/1`
 
 ### Create a resource Item or Merchant
 
-*This endpoint allows you to create an item resource*
+*This endpoint allows you to create an item resource.*
 
 `Post http://localhost:3000/api/v1/items`
 
@@ -93,12 +91,12 @@ Example JSON RESPONSE for `post /api/v1/items`
 
 ### Get an Items Merchant or Merchants Items 
 
-*This endpoint allows you to grab and items merchant or grab all the items of a specific merchant based on associations* 
+*This endpoint allows you to grab and items merchant or grab all the items of a specific merchant based on associations.* 
 
 `GET http://localhost:3000/api/v1/items/{{item_id}}/merchant` 
 
 ### Update an Item resource 
-*This endpoint allows your to update an item resource based on headers that your pass into your request*
+*This endpoint allows your to update an item resource based on headers that your pass into your request.*
 
 `PUT http://localhost:3000/api/v1/items/{{item_id}}`
 
@@ -122,7 +120,7 @@ Example JSON RESPONSE for `post /api/v1/items`
 
 ### Get one Merchant based on name fragment
 
-*This endpoint will get on merchant based on name fragment. If multiple records exist it will return the first based on alphabetical order* 
+*This endpoint will get on merchant based on name fragment. If multiple records exist it will return the first based on alphabetical order.* 
 
 Example JSON response to `http://localhost:3000/api/v1/merchants/find?name=iLl`
 
@@ -174,7 +172,7 @@ Example JSON response of `http://localhost:3000/api/v1/items/find_all?max_price=
 
 ### Get all Merchants based on revenue sorted by highest revenue
 
-*This endpoint will retreive all the merchants based on revenue. You can pass in an optional param of how many merchants you would like returned* 
+*This endpoint will retreive all the merchants based on revenue. You can pass in an optional param of how many merchants you would like returned.* 
 
 Example JSON respone of `http://localhost:3000/api/v1/revenue/merchants?quantity=2` 
 
@@ -203,7 +201,7 @@ Example JSON respone of `http://localhost:3000/api/v1/revenue/merchants?quantity
 
 ### Get merchants who sold the most items 
 
-*This endpoint will return the merchants based on items sold. This endpoint has an optional parameter determining merchants returned* 
+*This endpoint will return the merchants based on items sold. This endpoint has an optional parameter determining merchants returned.* 
 
 Example JSON response of `http://localhost:3000/api/v1/merchants/most_items?quantity=1` 
 
@@ -224,7 +222,7 @@ Example JSON response of `http://localhost:3000/api/v1/merchants/most_items?quan
 
 ### Get revenue of a single merchant 
 
-*This endpoint returns the revenue of a specific merchant* 
+*This endpoint returns the revenue of a specific merchant.* 
 
 Example JSON of `GET http://localhost:3000/api/v1/revenue/merchants/1` 
 
@@ -237,5 +235,58 @@ Example JSON of `GET http://localhost:3000/api/v1/revenue/merchants/1`
 "revenue": 528774.6400000004
 }
 }
+}
+```
+
+### Get Items with the most revenue 
+
+*This endpoint returns the items with the most revenue. You can pass an optional paramater of how many you would like returned. 
+
+Example JSON response of `http://localhost:3000/api/v1/revenue/items?quantity=2` 
+
+```
+{
+"data": [
+{
+"id": "227",
+"type": "item_revenue",
+"attributes": {
+"name": "Item Dicta Autem",
+"description": "Fugiat est ut eum impedit vel et. Deleniti quia debitis similique. Sint atque explicabo similique est. Iste fugit quis voluptas. Rerum ut harum sed fugiat eveniet ullam ut.",
+"unit_price": 853.19,
+"merchant_id": 14,
+"revenue": 1148393.7399999984
+}
+},
+{
+"id": "2174",
+"type": "item_revenue",
+"attributes": {
+"name": "Item Nam Magnam",
+"description": "Eligendi quibusdam eveniet temporibus sed ratione ut magnam. Sit alias et. Laborum dignissimos quos impedit excepturi molestiae.",
+"unit_price": 788.08,
+"merchant_id": 89,
+"revenue": 695086.5599999998
+}
+}
+]
+} 
+``` 
+
+### Get all Invoices that are unshipped and are potential revenue 
+
+Example JSON response of `http://localhost:3000/api/v1/revenue/unshipped` 
+
+```
+{
+"data": [
+{
+"id": "4844",
+"type": "unshipped_order",
+"attributes": {
+"potential_revenue": 1504.08
+}
+}
+]
 }
 ```
