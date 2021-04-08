@@ -30,9 +30,11 @@ You are working for a company developing an E-Commerce Application. Your team is
 ## Available Endpoints 
 ### Get all merchants 
 `GET /api/v1/merchants` 
+
 *This endpoint allows you to retrieve all merchants from the database and has optional query params of per_page and page*
+
 Example JSON Response for `GET /api/v1/merchants?per_page=2page=1` 
-`{
+```{
   "data": [
     {
       "id": "1",
@@ -50,10 +52,11 @@ Example JSON Response for `GET /api/v1/merchants?per_page=2page=1`
     }
     }
   ]
-}`
+}```
 ### Get one merchant
 `GET /api/v1/merchants/#{merchant_id}` 
 *This endpoint allows your to retreive a specific merchant merchant their information*
+
 Example JSON Response for `GET /api/v1/merchant/1` 
 `{
   "data": {
