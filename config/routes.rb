@@ -5,17 +5,15 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'merchants/most_items', to: 'merchants#most_items'
       get 'revenue', to: 'revenue#between_dates'
+      get '/revenue/merchants', to: 'revenue#most_revenue'
+      get '/revenue/unshipped', to: 'revenue#unshipped_revenue'
+      get '/revenue/merchants/:id', to: 'revenue#merchant_revenue'
+      get '/revenue/items', to: 'revenue#item_revenue'
       namespace :merchants do
         get '/find', to: 'search#find_one'
       end
       namespace :items do
         get '/find_all', to: 'search#find_all'
-      end
-      namespace :revenue do
-        get '/merchants', to: 'revenue#most_revenue'
-        get '/unshipped', to: 'revenue#unshipped_revenue'
-        get '/merchants/:id', to: 'revenue#merchant_revenue'
-        get 'items', to: 'revenue#item_revenue'
       end
       resources :items do
         get '/merchant', to: 'items_merchant#show'
@@ -25,4 +23,4 @@ Rails.application.routes.draw do
       end
     end
   end
-end 
+end
