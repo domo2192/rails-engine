@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'merchants/most_items', to: 'merchants#most_items'
-      get 'revenue', to: 'revenue#between_dates'
+      get '/revenue', to: 'revenue#between_dates'
       get '/revenue/merchants', to: 'revenue#most_revenue'
       get '/revenue/unshipped', to: 'revenue#unshipped_revenue'
       get '/revenue/merchants/:id', to: 'revenue#merchant_revenue'
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :items do
         get '/merchant', to: 'items_merchant#show'
       end
-      resources :merchants do
+      resources :merchants, only: [:index, :show] do
         get '/items', to: 'merchant_items#show'
       end
     end
