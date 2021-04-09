@@ -444,18 +444,8 @@
           null,
           null
         ]
-      },
-      "/Users/dominicpadula/turing/Mod3/projects/rails-engine/app/serializers/revenue_serializer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1617927755
+    "timestamp": 1617929594
   }
 }
