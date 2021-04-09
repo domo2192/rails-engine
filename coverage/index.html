@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T10:27:09-06:00">2021-04-08T10:27:09-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T19:00:00-06:00">2021-04-08T19:00:00-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -139,7 +139,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#53943cbc7a3845c3edae260358cccba85fb7aebd" class="src_link" title="app/controllers/api/v1/revenue_controller.rb">app/controllers/api/v1/revenue_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">39</td>
+            <td class="cell--number">50</td>
             <td class="cell--number">21</td>
             <td class="cell--number">21</td>
             <td class="cell--number">0</td>
@@ -216,7 +216,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d4f97af38a6a3dd90f6fa11b67ab90905971f59d" class="src_link" title="app/models/merchant.rb">app/models/merchant.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">48</td>
+            <td class="cell--number">51</td>
             <td class="cell--number">13</td>
             <td class="cell--number">13</td>
             <td class="cell--number">0</td>
@@ -440,7 +440,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#53943cbc7a3845c3edae260358cccba85fb7aebd" class="src_link" title="app/controllers/api/v1/revenue_controller.rb">app/controllers/api/v1/revenue_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">39</td>
+            <td class="cell--number">50</td>
             <td class="cell--number">21</td>
             <td class="cell--number">21</td>
             <td class="cell--number">0</td>
@@ -633,7 +633,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d4f97af38a6a3dd90f6fa11b67ab90905971f59d" class="src_link" title="app/models/merchant.rb">app/models/merchant.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">48</td>
+            <td class="cell--number">51</td>
             <td class="cell--number">13</td>
             <td class="cell--number">13</td>
             <td class="cell--number">0</td>
@@ -2816,6 +2816,127 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
+            
+            
+
+            
+
+            <code class="ruby">  # def between_dates</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="41">
+            
+            
+
+            
+
+            <code class="ruby">  #   if params[:start].nil? || params[:end].nil? || params[:start].empty? || params[:end].empty?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">  #     render json: {error: &#39;Provide both valid start and end date&#39;}, status: 400</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">  #   else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">  #     startdate = params[:start].to_time</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby">  #     enddate = params[:end].to_time</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby">  #     revenue = Merchant.across_dates(startdate, enddate)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby">  #     render json: RevenueSerializer.new(revenue).serialized_json</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">  #   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">  # end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
             <code class="ruby">end</code>
           </li>
         </div>
@@ -4738,7 +4859,7 @@
 
             
 
-            <code class="ruby">  # def self.revenue_between(starttime, endtime)</code>
+            <code class="ruby">  # def self.across_dates(startdate, enddate)</code>
           </li>
         </div>
       
@@ -4749,7 +4870,7 @@
 
             
 
-            <code class="ruby">  #   joins(invoice_items: :transactions).</code>
+            <code class="ruby">  #   select(&quot;merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue&quot;).</code>
           </li>
         </div>
       
@@ -4760,7 +4881,7 @@
 
             
 
-            <code class="ruby">  #   select(&quot;transactions.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue&quot;).</code>
+            <code class="ruby">  #   joins(invoice_items: :transactions).</code>
           </li>
         </div>
       
@@ -4771,7 +4892,7 @@
 
             
 
-            <code class="ruby">  #   merge(Transaction.successful).</code>
+            <code class="ruby">  #   group(:id).</code>
           </li>
         </div>
       
@@ -4782,7 +4903,7 @@
 
             
 
-            <code class="ruby">  #   group(&#39;transactions.created_at &lt; ? AND transactions.created_at &gt; ?&#39;, starttime, endtime)</code>
+            <code class="ruby">  #   merge(Transaction.successful).</code>
           </li>
         </div>
       
@@ -4793,12 +4914,45 @@
 
             
 
-            <code class="ruby">  # end</code>
+            <code class="ruby">  #   merge(Invoice.shipped).</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">  #   where(&#39;transactions.created_at &gt; ? AND transactions.created_at &lt; ?&#39;, startdate, enddate).</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">  #   pluck(&quot;SUM(invoice_items.unit_price*invoice_items.quantity)&quot;).sum</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">  # end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="51">
             
             
 
