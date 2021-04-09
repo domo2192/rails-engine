@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
+      get 'revenue', to: 'revenue#between_dates'
       namespace :revenue do
         get '/merchants', to: 'revenue#most_revenue'
         get '/unshipped', to: 'revenue#unshipped_revenue'

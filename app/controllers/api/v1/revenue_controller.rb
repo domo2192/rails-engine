@@ -36,4 +36,15 @@ class Api::V1::RevenueController < ApplicationController
       render json: {error: 'Invalid quantity'}, status: 400
     end
   end
+
+  def between_dates
+    if params[:start].nil? || params[:end].nil? || params[:start].empty? || params[:end].empty?
+      render json: {error: 'Provide both valid start and end date'}, status: 400
+    else
+      startdate = params[:start].to_time
+      enddate = params[:end].to_time
+      revenue = Merchant.across_dates(startdate, enddate)
+      render json: RevenueSerializer.new(revenue).serialized_json
+    end
+  end
 end
