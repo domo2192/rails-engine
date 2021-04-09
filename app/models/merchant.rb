@@ -40,12 +40,12 @@ class Merchant < ApplicationRecord
   end
 
   # def self.across_dates(startdate, enddate)
-  #   select("merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue").
+  #   select("merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS rev").
   #   joins(invoice_items: :transactions).
   #   group(:id).
   #   merge(Transaction.successful).
   #   merge(Invoice.shipped).
   #   where('transactions.created_at > ? AND transactions.created_at < ?', startdate, enddate).
-  #   pluck("SUM(invoice_items.unit_price*invoice_items.quantity)").sum
+  #   sum(:rev)
   # end
 end
