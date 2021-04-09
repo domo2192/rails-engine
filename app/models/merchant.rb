@@ -39,13 +39,13 @@ class Merchant < ApplicationRecord
     where("merchants.id = #{id}")
   end
 
-  def self.across_dates(startdate, enddate)
-    select("merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue").
-    joins(invoice_items: :transactions).
-    group(:id).
-    merge(Transaction.successful).
-    merge(Invoice.shipped).
-    where('transactions.created_at > ? AND transactions.created_at < ?', startdate, enddate).
-    pluck("SUM(invoice_items.unit_price*invoice_items.quantity)").sum
-  end
+  # def self.across_dates(startdate, enddate)
+  #   select("merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue").
+  #   joins(invoice_items: :transactions).
+  #   group(:id).
+  #   merge(Transaction.successful).
+  #   merge(Invoice.shipped).
+  #   where('transactions.created_at > ? AND transactions.created_at < ?', startdate, enddate).
+  #   pluck("SUM(invoice_items.unit_price*invoice_items.quantity)").sum
+  # end
 end
